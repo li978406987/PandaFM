@@ -1,0 +1,159 @@
+//
+//  PrefixHeader.pch
+//  PandaFM
+//
+//  Created by 洛洛大人 on 16/9/20.
+//  Copyright © 2016年 洛洛大人. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import "LJ_FoundViewController.h"
+#import "LJ_subscribeToListenViewController.h"
+#import "LJ_DownloadToListenViewController.h"
+#import "LJ_MyViewController.h"
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "LJNetTool.h"
+#import "MJRefresh.h"
+#import "LJ_BaseModel.h"
+
+
+#import "LJ_Play_ViewController.h"
+
+/*
+ *  系统相关宏定义
+ */
+#define kTabBarHeight  49       //定义Tabbar高度
+
+/**
+ *  颜色处理
+ */
+#define Hex(rgbValue) ([UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0])
+
+
+#define force_inline __inline__ __attribute__((always_inline))
+
+static NSString *const kSectionFooter = @"UICollectionElementKindSectionFooter";
+static NSString *const kSectionHeader = @"UICollectionElementKindSectionHeader";
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#pragma mark - 头文件
+#import "BXExtensions.h"
+//#import "BXConst.h"
+
+//推荐 -- 轮播图
+#import "Shuffly_Model.h"
+#import "Shuffly_CollectionViewCell.h"
+#import "Shuffly.h"
+//推荐 -- 发现新奇
+#import "FindingNovel_Model.h"
+#import "FindingNovel_CollectionViewCell.h"
+#import "DiscoveryColumns.h"
+//推荐 -- 猜你喜欢
+#import "LJ_GuessModel.h"
+#import "LJ_GuessCollectionViewCell.h"
+#import "LJ_Guess_TableViewCell.h"
+#import "Guess.h"
+
+//推荐 -- 听大连
+#import "LJ_CityColumnModel.h"
+#import "LJ_CityColumnCollectionViewCell.h"
+#import "CityColumn.h"
+#import "LJ_CityColumn_TableViewCell.h"
+
+//推荐 -- 付费会员
+#import "LJ_MemberModel.h"
+#import "LJ_MemberCollectionViewCell.h"
+#import "Member.h"
+#import "LJ_Member_TableViewCell.h"
+
+//推荐 -- 热门推荐
+#import "hotRecommends.h"
+#import "List.h"
+#import "LJ_HotRecommendsModel.h"
+#import "LJ_HotCollectionViewCell.h"
+#import "LJ_Hto_TableViewCell.h"
+
+//推荐 -- 小编推荐
+#import "EditorRecommendAlbums.h"
+#import "LJ_EditorModel.h"
+#import "LJ_Editor_TableViewCell.h"
+#import "LJ_Editor_CollectionViewCell.h"
+
+//推荐 -- 精品听单
+#import "SpecialColumn.h"
+#import "LJ_SpecialColumnModel.h"
+#import "LJ_SpecialColumn_TableViewCell.h"
+#import "LJ_SmallSpecial_TableViewCell.h"
+
+//分类 -- 发现新奇
+#import "Classify_discoveryColumns.h"
+#import "LJ_ClassifyModel.h"
+#import "ClassifyCollectionViewCell.h"
+#import "Classify_FindingNovelCollectionViewCell.h"
+
+
+//分类 -- 列表
+#import "LJ_Classify_ListModel.h"
+#import "LJ_Classify_listTableViewCell.h"
+#import "LJ_Classify_ListCollectionViewCell.h"
+
+//榜单 -- 节目榜单
+#import "Lsit_Datas.h"
+#import "LJ_List_DatasModel.h"
+#import "LJ_List_DatasTableViewCell.h"
+#import "LJ_List_HostModel.h"
+
+#import "Anchor.h"
+#import "LJ_AnchorModel.h"
+#import "LJ_AnchorTableViewCell.h"
+#import "LJ_AnchorCollectionViewCell.h"
+
+
+
+#endif
+
+/**
+ *  弱引用
+ */
+#define LJWeakSelf __weak typeof(self) weakSelf = self;
+
+#define LJNoteCenter [NSNotificationCenter defaultCenter]
+
+#define LJScreenH [UIScreen mainScreen].bounds.size.height
+#define LJScreenW [UIScreen mainScreen].bounds.size.width
+#define LJScreenBounds [UIScreen mainScreen].bounds
+#define LJKeyWindow [UIApplication sharedApplication].keyWindow
+
+// 随机色
+#define LJRandomColor BXColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+// 设置颜色
+#define LJColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define LJAlphaColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+//保单显示文字颜色
+#define The_Prompt_Color_Nine [[UIColor alloc]initWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1]
+#define The_Prompt_Color_Six [[UIColor alloc]initWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1]
+#define The_Prompt_Color_Three [[UIColor alloc]initWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]
+
+#define The_MainColor BXColor(51, 153, 255)
+#define LJGlobalBg BXColor(242, 242, 242)
+// 自定义log
+#ifdef DEBUG
+
+#define LJLog(...) NSLog(@"%s %d \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+
+#else
+
+#define LJLog(...)
+
+
+
+
+#endif /* PrefixHeader_pch */
